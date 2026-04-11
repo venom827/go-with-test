@@ -3,9 +3,19 @@ package main
 import "testing"
 
 func TestHello(t *testing.T){
+	t.Run("in hindi", func(t *testing.T){
+		got:=Hello("Karan","Hindi")
+		want:="Namaste Karan\n"
+		assertCorrectMessage(t,got,want)
+	})
+	t.Run("in french", func(t *testing.T){
+		got:=Hello("Camille","French")
+		want:="Bonjour Camille\n"
+		assertCorrectMessage(t,got,want)       
+	})
 	t.Run("in spanish", func (t *testing.T){
 		got:= Hello("Elodie", "Spanish")
-		want:= "Hola, Elodie"
+		want:= "Hola Elodie\n"
 		assertCorrectMessage(t,got,want)
 	})
 	t.Run("saying hello to people", func (t *testing.T){
